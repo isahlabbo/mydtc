@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MYDTC| Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* Responsive and brand navigation styles */
+      .navbar {
+        border-bottom: 2px solid var(--brand-green);
+      }
+      .navbar .navbar-brand .fw-bold {
+        color: var(--brand-green) !important;
+        letter-spacing: 0.5px;
+      }
+      .navbar .navbar-brand small {
+        color: var(--brand-orange) !important;
+        font-weight: 600;
+      }
+      .navbar-nav .nav-link {
+        color: var(--brand-green) !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: background 0.2s, color 0.2s;
+      }
+      .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+        background: var(--brand-orange);
+        color: #fff !important;
+      }
+      .navbar-toggler {
+        border-color: var(--brand-orange);
+      }
+      .navbar-toggler-icon {
+        background-image: none;
+        width: 1.8em;
+        height: 1.8em;
+        position: relative;
+      }
+      .navbar-toggler-icon:before, .navbar-toggler-icon:after, .navbar-toggler-icon div {
+        content: '';
+        display: block;
+        height: 3px;
+        background: var(--brand-green);
+        margin: 5px 0;
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      .navbar-toggler-icon div {
+        background: var(--brand-orange);
+      }
+      @media (max-width: 991.98px) {
+        .navbar-nav .nav-link {
+          padding: 0.7rem 1.2rem;
+          margin-bottom: 0.3rem;
+        }
+        .navbar .container {
+          padding-left: 0.5rem !important;
+          padding-right: 0.5rem !important;
+        }
+      }
+      /* Responsive adjustments for custom sections */
+      @media (max-width: 991.98px) {
+        #about, #programs {
+          padding: 1.2rem 0.7rem;
+          border-radius: 0.7rem;
+        }
+        .hero {
+          padding: 2.5rem 0 1.5rem 0;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .hero {
+          padding: 1.5rem 0 1rem 0;
+        }
+        .hero h1 {
+          font-size: 1.4rem;
+        }
+        .feature-icon {
+          width: 36px;
+          height: 36px;
+        }
+        #about, #programs {
+          padding: 0.7rem 0.3rem;
+          border-radius: 0.5rem;
+        }
+        .card-cta {
+          border-left-width: 3px;
+        }
+
+        .card-ctb {
+          border-left-width: 3px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .container, .container-fluid {
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+        }
+        .hero h1 {
+          font-size: 1.1rem;
+        }
+        .feature-icon {
+          width: 28px;
+          height: 28px;
+        }
+        .card-cta {
+          border-left-width: 2px;
+        }
+        .card-ctb {
+          border-left-width: 2px;
+        }
+        #about, #programs {
+          padding: 0.4rem 0.1rem;
+        }
+      }
+      /* Brand backgrounds for sections */
+      #about {
+        background: linear-gradient(90deg, rgba(48,173,94,0.08) 0%, rgba(250,147,3,0.06) 100%);
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+      #about h2, #about h5 {
+        color: var(--brand-green);
+      }
+      #about p, #about li {
+        color: #2d4737;
+      }
+      #programs {
+        background: linear-gradient(90deg, rgba(250,147,3,0.10) 0%, rgba(48,173,94,0.06) 100%);
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+      #programs h3, #programs h5 {
+        color: var(--brand-orange);
+      }
+      #programs p, #programs li {
+        color: #5a3a0a;
+      }
+      :root{
+        --accent:#0d6efd;
+        --muted:#6c757d;
+        --brand-green: rgb(48, 173, 94);
+        --brand-orange: rgb(250, 147, 3);
+      }
+      body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:#f8f9fa;color:#212529}
+      .hero{position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(13,110,253,0.06),rgba(13,110,253,0.02));padding:4rem 0}
+      .hero-shape{
+        position:absolute;width:60px;height:60px;border-radius:50%;z-index:0;
+        animation: floatShape 2.2s ease-in-out infinite alternate;
+        filter: blur(2px);
+        top:calc(10% + 60px * var(--i,0));
+      }
+      @keyframes floatShape {
+        0%{transform:translateY(0) scale(1)}
+        100%{transform:translateY(40px) scale(1.15)}
+      }
+      .hero h1{position:relative;z-index:1;}
+      .animate-hero-title{animation:fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;}
+      @keyframes fadeInUp{
+        0%{opacity:0;transform:translateY(40px)}
+        100%{opacity:1;transform:none}
+      }
+      .hero .btn-glow{
+        box-shadow:0 0 0 0.25rem rgba(13,110,253,0.25),0 2px 12px 0 rgba(13,110,253,0.12);
+        transform:scale(1.04);
+        transition:box-shadow .2s,transform .2s;
+      }
+  .card-cta{border-left:4px solid var(--brand-green)}
+  .card-ctb{border-left:4px solid rgba(139,69,19)}
+  .badge-soft{background:rgba(250,147,3,0.12);color:var(--brand-orange);font-weight:600}
+  .feature-icon{width:48px;height:48px;border-radius:8px;background:var(--brand-green);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+      .btn-primary {
+        background-color: var(--brand-green);
+        border-color: var(--brand-green);
+      }
+      .btn-primary:hover, .btn-primary:focus {
+        background-color: var(--brand-orange);
+        border-color: var(--brand-orange);
+      }
+      .btn-outline-primary {
+        color: var(--brand-orange);
+        border-color: var(--brand-orange);
+      }
+      .btn-outline-primary:hover, .btn-outline-primary:focus {
+        background-color: var(--brand-orange);
+        color: #fff;
+        border-color: var(--brand-orange);
+      }
+      .card-ctb h5{
+        color: rgb(139,69,19);
+      }
+      footer{background:#0b1724;color:#fff;padding:2.5rem 0}
+      @media (prefers-color-scheme: dark){body{background:#0b1220;color:#e9eef8}}    
+    </style>
+    <script defer src="hero.js"></script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <div class="me-2"><img src="images/logo.png" width="100" alt=""></div>
+          <div>
+            <div class="fw-bold">Malam Yahaya Digital Technology Center</div>
+            <small class="text">Sifawa, Bodinga LG, Sokoto State</small>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><div></div></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#schools">Schools</a></li>
+            <li class="nav-item"><a class="nav-link" href="#security">Security</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container position-relative" style="z-index:2;">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <span class="badge badge-soft mb-2">Trusted ICT Hub</span>
+            <h1 class="display-6 fw-bold">Building Digital Skills, Securing Exams, Empowering Communities</h1>
+            <p class="lead text-muted">We run accredited Computer-Based Testing (CBT) services, practical ICT training and community programs from our 300‑computer facility in Sifawa. Flexible delivery — physical or virtual.</p>
+            <div class="d-flex gap-2">
+              <a href="#programs" class="btn btn-primary">View Programmes</a>
+              <a href="#contact" class="btn btn-outline-primary">Contact Us</a>
+            </div>
+          </div>
+          <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Quick Info</h5>
+                <p class="mb-1"><strong>Location:</strong> No. 6, Birnin Kebbi Road, Sifawa Bodinga LG, Sokoto State</p>
+                <p class="mb-1"><strong>Capacity:</strong> 300 computer stations</p>
+                <p class="mb-1"><strong>Security:</strong> 24/7 Security Guard & CCTV</p>
+                <p class="mb-0"><strong>Contact:</strong> <a href="tel:+">08162463010</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-5">
+      <div class="container">
+
+        <section id="about" class="mb-5">
+          <div class="row">
+            <div class="col-lg-6">
+              <h5>About the Center</h5>
+              <p class="text text-justify">Malam Yahaya Digital Technology Center, established by the Malam Yahaya Foundation, is a dedicated ICT facility focused on delivering reliable CBT services, hands‑on ICT training, and community development programs. Our mission is to empower individuals, schools and organizations with digital skills and solutions that improve education, employability and innovation.</p>
+            </div>
+            <div class="col-lg-6 text text-justify">
+              <h5 class="mt-3">Mission & Vision</h5>
+              <p><strong>Mission:</strong> To empower individuals, schools, and organizations by providing ICT knowledge and digital solutions that enhance education, improve employability, foster innovation, and promote sustainable community development.</p>
+              <p><strong>Vision:</strong> To be a leading digital hub in Northern Nigeria recognized for excellence in CBT delivery, ICT training and community impact.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-4">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card card-ctb p-3 shadow-sm">
+                <h5 class="mb-1">Our Key Components</h5>
+                <ul class="mb-0">
+                  <li>Empowerment and Accessibility</li>
+                  <li>Digital Literacy</li>
+                  <li>Creativity and Innovation</li>
+                  <li>Global Trends</li>
+                  <li>Self-Actualization Opportunity</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-ctb p-3 shadow-sm">
+                <h5 class="mb-1">Our Implementation Strategies</h5>
+                <ul class="mb-0">
+                  <li>Bootcamps, workshops and training programmes</li>
+                  <li>Partnerships, Affiliation and Collaboration</li>
+                  <li>Community Engagement</li>
+                  <li>Feedback Mechanism</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-ctb p-3 shadow-sm">
+                <h5 class="mb-1">Our Core Values</h5>
+                <ul class="mb-0">
+                  <li>Innovation</li>
+                  <li>Collaboration</li>
+                  <li>Integrity</li>
+                  <li>Continuous Learning</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="programs" class="mb-5">
+          <h3 class="text text-center m-4">Programmes</h3>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Computer for Children</h5>
+                  <p class="text-muted">Foundational ICT programme for young learners. Covers: basic operations, MS Office, internet safety, and introductory programming.</p>
+                  <p><strong>Target:</strong> Primary and Junior Secondary School Students.</p>
+                  <p><strong>Delivery:</strong> Physical at center or virtual in coordination with schools.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Certificate, Engineering & Diploma Programmes (UDUCONS)</h5>
+                  <p class="text-muted">Structured certificate and diploma courses in Computer Studies delivered in affiliation with Usmanu Danfodiyo University Consultancy Services (UDUCONS).</p>
+                  <p><strong>Target:</strong> Senior secondary leavers, teachers and professionals.</p>
+                  <p><strong>Note:</strong> These programmes are affiliated to Usmanu Danfodiyo University Consultancy Services (UDUCONS).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card h-100 border-warning">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Professional ICT Courses </h5>
+                  <p class="text-muted">Specialized technical courses on Graphic Design, Database, Networking, Data Analysis in collaboration with Cisco Academy.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card h-100 border-info">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Bootcamps and Workshops</h5>
+                  <p class="text-muted">Days and Weeks Short intensive programmes in Cybersecurity, Web Development, Machine Learning, Blockchain and Artificial Intelligence designed to produce projects and prototypes for incubation.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="schools" class="mb-5">
+          <h3 class="text text-center" style="color: rgb(139,69,19);">CBT for School Terminal Exams</h3>
+          <p>We offer schools the opportunity to run their terminal exams on our CBT platform. Schools provide questions and student lists; the Center uploads and administers exams under simulated JAMB/WAEC conditions. Reports and analytics are delivered to schools for review.</p>
+          <ul>
+            <li>Benefits: student familiarity with CBT, standardized results, and reduced malpractice risk.</li>
+            <li>Capacity: Up to 300 candidates per session (batch scheduling available).</li>
+            <li>Fee Model: Affordable per-student pricing with school discount packages.</li>
+          </ul>
+        </section>
+
+        <section id="contact" class="mb-5">
+          <h3 class="text text-center">Contact & Next Steps</h3>
+          <p>To discuss partnerships, school programmes, or training schedules, please contact our Centre Manager:</p>
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Manager:</strong> Isah A. Labbo</p>
+              <p><strong>Phone:</strong> 08162463010</p>
+              <p><strong>Email:</strong> <a href="mailto:mydtconline@gmail.com">mydtconline@gmail.com</a></p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Address:</strong> No.6 Birnin Kebbi Road Sifawa, Bodinga LGA, Sokoto State</p>
+              <p><strong>Open Hours:</strong> Mon–Sat, 8:00am – 6:00pm</p>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <a class="btn btn-primary me-2" href="#">Request Partnership</a>
+            <a class="btn btn-outline-secondary" href="#">View Programme Details (PDF)</a>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Malam Yahaya Digital Technology Center</h5>
+            <p>No.6 Birnin Kebbi Road Sifawa, Bodinga LG, Sokoto State</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <small>© Fatima Yahaya Foundation • All rights reserved</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
