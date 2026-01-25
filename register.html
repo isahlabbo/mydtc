@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYDTC | Register</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --brand-green: rgb(48, 173, 94);
+            --brand-orange: rgb(250, 147, 3);
+            --brand-brown: rgb(139, 69, 19);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, rgba(48, 173, 94, 0.1) 0%, rgba(250, 147, 3, 0.08) 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .register-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 600px;
+            width: 100%;
+            margin: 100px auto;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .register-header {
+            background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-orange) 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .register-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .register-header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .register-body {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group label {
+            color: var(--brand-green);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--brand-green);
+            box-shadow: 0 0 0 3px rgba(48, 173, 94, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .password-strength {
+            margin-top: 8px;
+            font-size: 12px;
+        }
+
+        .strength-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .strength-indicator {
+            height: 100%;
+            width: 0%;
+            background: #ccc;
+            transition: all 0.3s ease;
+        }
+
+        .strength-indicator.weak {
+            width: 33%;
+            background: #e74c3c;
+        }
+
+        .strength-indicator.medium {
+            width: 66%;
+            background: var(--brand-orange);
+        }
+
+        .strength-indicator.strong {
+            width: 100%;
+            background: var(--brand-green);
+        }
+
+        .terms-agreement {
+            background: rgba(48, 173, 94, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .terms-agreement input[type="checkbox"] {
+            accent-color: var(--brand-green);
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .terms-agreement label {
+            margin: 0;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .terms-agreement a {
+            color: var(--brand-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .terms-agreement a:hover {
+            color: var(--brand-orange);
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-orange) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(48, 173, 94, 0.3);
+        }
+
+        .btn-register:active {
+            transform: translateY(0);
+        }
+
+        .register-footer {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 13px;
+        }
+
+        .register-footer p {
+            color: #666;
+            margin: 0;
+        }
+
+        .register-footer a {
+            color: var(--brand-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .register-footer a:hover {
+            color: var(--brand-orange);
+        }
+
+        .navbar {
+            border-bottom: 2px solid var(--brand-green);
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar .navbar-brand .fw-bold {
+            color: var(--brand-green) !important;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar .navbar-brand small {
+            color: var(--brand-orange) !important;
+            font-weight: 600;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--brand-green) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background: var(--brand-orange);
+            color: #fff !important;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .register-header h1 {
+                font-size: 22px;
+            }
+
+            .register-body {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="fw-bold">MY<span class="text-warning">DTC</span></span>
+                <small>| Training Center</small>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="ms-auto">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="partners.html">Partners</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="register-container">
+        <div class="register-header">
+            <h1><i class="bi bi-person-plus"></i> Create Account</h1>
+            <p>Join our training center today</p>
+        </div>
+
+        <div class="register-body">
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select id="course" required>
+                        <option value="">-- Choose a course --</option>
+                        <option value="web-dev">Web Development</option>
+                        <option value="mobile-dev">Mobile Development</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="ui-ux">UI/UX Design</option>
+                        <option value="digital-marketing">Digital Marketing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create a strong password" required>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-indicator" id="strengthIndicator"></div>
+                        </div>
+                        <span id="strengthText" style="color: #999;">Password strength: Weak</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Re-enter your password" required>
+                </div>
+
+                <div class="terms-agreement">
+                    <label>
+                        <input type="checkbox" id="termsCheck" required>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-register">Create Account</button>
+            </form>
+
+            <div class="register-footer">
+                <p>Already have an account? <a href="login.html">Sign in here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Password strength checker
+        const passwordInput = document.getElementById('password');
+        const strengthIndicator = document.getElementById('strengthIndicator');
+        const strengthText = document.getElementById('strengthText');
+
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+
+            if (password.length >= 6) strength++;
+            if (password.length >= 12) strength++;
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+            if (/\d/.test(password)) strength++;
+            if (/[^a-zA-Z\d]/.test(password)) strength++;
+
+            strengthIndicator.className = 'strength-indicator';
+            if (strength < 2) {
+                strengthIndicator.classList.add('weak');
+                strengthText.textContent = 'Password strength: Weak';
+                strengthText.style.color = '#e74c3c';
+            } else if (strength < 4) {
+                strengthIndicator.classList.add('medium');
+                strengthText.textContent = 'Password strength: Medium';
+                strengthText.style.color = 'rgb(250, 147, 3)';
+            } else {
+                strengthIndicator.classList.add('strong');
+                strengthText.textContent = 'Password strength: Strong';
+                strengthText.style.color = 'rgb(48, 173, 94)';
+            }
+        });
+
+        // Form submission
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            if (!document.getElementById('termsCheck').checked) {
+                alert('Please agree to the terms and conditions!');
+                return;
+            }
+
+            alert('Registration successful! Welcome to MYDTC');
+        });
+    </script>
+</body>
+</html>
